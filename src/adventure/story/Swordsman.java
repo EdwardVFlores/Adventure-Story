@@ -5,6 +5,9 @@ package adventure.story;
  * @date 1/16/2019
  */
 
-public class Swordsman {
+public class Swordsman extends Player {
 
+    public Swordsman() {
+        super("Swordsman");
+    }
 }

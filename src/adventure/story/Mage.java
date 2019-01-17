@@ -5,6 +5,10 @@ package adventure.story;
  * @date 1/16/2019
  */
 
-public class Mage {
+public class Mage extends Player {
+    
+    public Mage() {
+        super("Mage");
+    }
     
 }

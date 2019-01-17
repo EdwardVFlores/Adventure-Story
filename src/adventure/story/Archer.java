@@ -5,6 +5,9 @@ package adventure.story;
  * @date 1/16/2019
  */
 
-public class Archer {
+public class Archer extends Player{
     
+    public Archer() {
+        super("Archer");
+    }
 }
