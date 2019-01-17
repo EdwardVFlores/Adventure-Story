@@ -10,17 +10,38 @@ package adventure.story;
  * @author EdwardsWife
  */
 public class Player {
-    private String className;
+    private final String className;
+    private int health,defense;
+    public boolean classChosen = false;
+    
     public Player(){
-        this.className = "human";
+        this.className = "Human";
+        this.health = 1;
+        this.defense = 1;
     }
     public Player(String className){
         this.className = className;
+        this.classChosen = true;
+    }
+    public void getStats(){
+        System.out.println("Class: " + this.className+
+                          "\nHealth: " + this.health +
+                          "\nDefense: " + this.defense);
     }
     public String getClassName(){
-        return className;
+        return this.className;
     }
-    public void setClassName(String className){
-        this.className = className;
+    public int getHealth(){
+        return this.health;
     }
+    public int getDefense(){
+        return this.defense;
+    }
+    public void setHealth(int health){
+        this.health = health;
+    }
+    public void setDefense(int health){
+        this.health = health;
+    }
+    
 }
