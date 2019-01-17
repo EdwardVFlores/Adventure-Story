@@ -15,37 +15,48 @@ public class AdventureStory {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.println("Welcome to adventure story where you fight monsters!");
-        System.out.println("Choose your class:");
-        System.out.println("1) Swordsman");
-        System.out.println("2) Archer");
-        System.out.println("3) Mage");
-        System.out.print("Select by number ");
+        Player player = chooseClass();
+        String action = input.nextLine();
+        if(action.equals("viewstats")){
+            player.getStats();
+        }
+    }
+    public static Player chooseClass(){
+        Scanner input = new Scanner(System.in);
         Player player = new Player();
-        int classNum = input.nextInt();
-        boolean gotClass = false;
-        while(gotClass == false){
-            switch(classNum){
+        while(!player.classChosen){
+            try{
+                System.out.println("Choose your class:");
+                System.out.println("1) View Stats");
+                System.out.println("2) Archer");
+                System.out.println("3) Mage");
+                System.out.println("4) Swordsman");
+                System.out.print("Select by number ");
+                int classNum = Integer.parseInt(input.nextLine());
+                switch(classNum){
                 case 1:
-                    player = new Swordsman();
-                    gotClass = true;
+                    System.out.println("Showing stats");
                     break;
                 case 2:
                     player = new Archer();
-                    gotClass = true;
                     break;
                 case 3:
                     player = new Mage();
-                    gotClass = true;
+                    break;
+                case 4:
+                    player = new Swordsman();
                     break;
                 default:
-                    System.out.println("Choose your class:");
-                    System.out.println("1) Swordsman");
-                    System.out.println("2) Archer");
-                    System.out.println("3) Mage");
-                    System.out.print("Select by number ");
-                    classNum = input.nextInt();
+                    System.out.println("\n" + classNum + " is not an option. \n");
+                    break;
+                }
+            }catch(NumberFormatException e){
+                System.out.println("That's not a number!");
+            }catch(Exception e){
+                e.printStackTrace();
             }
         }
-        System.out.println("You have selected: " + player.getClassName());
+        System.out.println("\nYou have selected the "+player.getClassName()+" class! \n");
+        return player;
     }
 }
