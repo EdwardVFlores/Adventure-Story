@@ -6,8 +6,8 @@
 package adventure.story;
 
 /**
- *
- * @author EdwardsWife
+ * @author Edward Flores
+ * @date 1/17/2019
  */
 public class Player {
     private final String className;
@@ -15,35 +15,33 @@ public class Player {
     public boolean classChosen = false;
     
     public Player(){
-        this.className = "Human";
-        this.health = 1;
-        this.defense = 1;
+        this.className = "No Class";
     }
+    
     public Player(String className){
         this.className = className;
         this.classChosen = true;
         System.out.println("\nYou have selected the "+this.className+" class!\n");
-        this.getStats();
     }
-    public void getStats(){
-        System.out.println("Class: " + this.className+
-                          "\nHealth: " + this.health +
-                          "\nDefense: " + this.defense);
-    }
+    
     public String getClassName(){
         return this.className;
     }
+    
     public int getHealth(){
         return this.health;
     }
+    
     public int getDefense(){
         return this.defense;
     }
+    
     public void changeHealth(int health){
         this.health += health;
     }
-    public void setDefense(int defense){
-        this.defense = defense;
+    
+    public void changeDefense(int defense){
+        this.defense += defense;
     }
     
 }
