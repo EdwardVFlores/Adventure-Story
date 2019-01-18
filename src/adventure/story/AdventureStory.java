@@ -53,6 +53,6 @@ public class AdventureStory {
                 e.getMessage();
             }
         }
-        return player;
+        return chooseClass(); //Just in case it returns an empty player.
     }
 }
