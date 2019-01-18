@@ -22,6 +22,8 @@ public class Player {
     public Player(String className){
         this.className = className;
         this.classChosen = true;
+        System.out.println("\nYou have selected the "+this.className+" class!\n");
+        this.getStats();
     }
     public void getStats(){
         System.out.println("Class: " + this.className+
@@ -37,11 +39,11 @@ public class Player {
     public int getDefense(){
         return this.defense;
     }
-    public void setHealth(int health){
-        this.health = health;
+    public void changeHealth(int health){
+        this.health += health;
     }
-    public void setDefense(int health){
-        this.health = health;
+    public void setDefense(int defense){
+        this.defense = defense;
     }
     
 }
