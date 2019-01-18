@@ -15,11 +15,8 @@ public class AdventureStory {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.println("Welcome to adventure story where you fight monsters!");
+        
         Player player = chooseClass();
-        String action = input.nextLine();
-        if(action.equals("viewstats")){
-            player.getStats();
-        }
     }
     public static Player chooseClass(){
         Scanner input = new Scanner(System.in);
@@ -36,27 +33,26 @@ public class AdventureStory {
                 switch(classNum){
                 case 1:
                     System.out.println("Showing stats");
+//                    Write a method to choose which stat to show for each class
+//                        1) Choose which stat to show
+//                        2) Print out the selected stat
                     break;
                 case 2:
-                    player = new Archer();
-                    break;
+                    return new Archer();
                 case 3:
-                    player = new Mage();
-                    break;
+                    return new Mage();
                 case 4:
-                    player = new Swordsman();
-                    break;
+                    return new Swordsman();
                 default:
                     System.out.println("\n" + classNum + " is not an option. \n");
                     break;
                 }
             }catch(NumberFormatException e){
-                System.out.println("That's not a number!");
+                System.out.println("\nThat is not a number!\n");
             }catch(Exception e){
-                e.printStackTrace();
+                e.getMessage();
             }
         }
-        System.out.println("\nYou have selected the "+player.getClassName()+" class! \n");
         return player;
     }
 }
