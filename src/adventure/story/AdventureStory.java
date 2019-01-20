@@ -6,7 +6,7 @@ package adventure.story;
  */
 
 import java.util.Scanner;
-
+import adventure.story.Item.*;
 public class AdventureStory {   
     
     /**
@@ -14,7 +14,7 @@ public class AdventureStory {
      */
     public static void main(String[] args) {
         System.out.println("Welcome to adventure story where you fight monsters!");
-        Scanner input = new Scanner(System.in); 
+        Scanner input = new Scanner(System.in);
         Player player = chooseClass();
         player.getClass().cast(player);
         System.out.println("\n" +player.getClassName() + " Selected!\n");
@@ -39,59 +39,57 @@ public class AdventureStory {
         }
     }
     public static Player chooseClass(){
+        Scanner input = new Scanner(System.in); 
         boolean classChosen = false;
         while(!classChosen){
-            Scanner input = new Scanner(System.in); 
+            System.out.println("Choose your class:");
+            System.out.println("1) View Stats");
+            System.out.println("2) Archer");
+            System.out.println("3) Mage");
+            System.out.println("4) Swordsman");
+            System.out.print("Select by number ");
             try{
-                System.out.println("Choose your class:");
-                System.out.println("1) View Stats");
-                System.out.println("2) Archer");
-                System.out.println("3) Mage");
-                System.out.println("4) Swordsman");
-                System.out.print("Select by number ");
                 int classNum = Integer.parseInt(input.nextLine());
                 switch(classNum){
-                case 1: 
-                    showStats();
-                    break;
-                case 2:
-                    return new Archer();
-                case 3:
-                    return new Mage();
-                case 4:
-                    return new Swordsman();
-                default:
-                    System.out.println("\n" + classNum + " is not an option. \n");
-                    break;
+                    case 1: 
+                        showStats();
+                        break;
+                    case 2:
+                        return new Archer();
+                    case 3:
+                        return new Mage();
+                    case 4:
+                        return new Swordsman();
+                    default:
+                        System.out.println("\n" + classNum + " is not an option. \n");
+                        break;
                 }
-                
                 classChosen = true;
-                
             }catch(NumberFormatException e){
                 System.out.println("\nThat is not a number!\n");
             }catch(Exception e){
-                e.getMessage();
+                e.printStackTrace();
             }
         }
         return chooseClass(); //Just in case it returns an empty player.
     }
     
     public static void showStats(){
-        boolean statChosen = false;
-        while(!statChosen){
-            Scanner input = new Scanner(System.in); 
+        Scanner input = new Scanner(System.in);
+        boolean stopStatView = false;
+        while(!stopStatView){ 
+            System.out.println("\nShow stats for which class?");
+            System.out.println("1) Exit Menu");
+            System.out.println("2) Archer");
+            System.out.println("3) Mage");
+            System.out.println("4) Swordsman");
+            System.out.print("Select by number ");
             try{
-                System.out.println("\nShow stats for which class?");
-                System.out.println("1) Exit Menu");
-                System.out.println("2) Archer");
-                System.out.println("3) Mage");
-                System.out.println("4) Swordsman");
-                System.out.print("Select by number ");
                 int statNum = Integer.parseInt(input.nextLine());
                 switch(statNum){
                     case 1:
-                        System.out.println("Exiting...\n");
-                        statChosen = true;
+                        System.out.println("\nExiting...\n");
+                        stopStatView = true;
                         break;
                     case 2:
                         Archer archer = new Archer();
