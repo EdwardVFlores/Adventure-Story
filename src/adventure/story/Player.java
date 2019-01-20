@@ -4,6 +4,7 @@ package adventure.story;
  * @author Edward Flores
  * @date 1/18/2019
  */
+
 public abstract class Player{
     private final String className;
     private int health,defense;
@@ -38,10 +39,13 @@ public abstract class Player{
     }
     public void showStats(){
         System.out.println();
-        System.out.println("Showing " + this.className.toLowerCase() + " stats.");
-        System.out.println("Health: " + this.getHealth());
-        System.out.println("Defense: " + this.getDefense());
-        System.out.println();
-    } 
-    
+        System.out.println("+-- "+this.className+" Stats --+");
+        System.out.println(" Health: " + this.getHealth());
+        System.out.println(" Defense: " + this.getDefense());
+        System.out.print("+------");
+        for (int i=0; i<this.className.length(); i++) {
+            System.out.print("-");
+        }
+        System.out.println("------+");
+    }
 }
