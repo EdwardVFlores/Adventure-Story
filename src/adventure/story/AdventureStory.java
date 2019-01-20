@@ -7,33 +7,41 @@ package adventure.story;
 
 import java.util.Scanner;
 
-public class AdventureStory {
+public class AdventureStory {   
     
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
-        Scanner input = new Scanner(System.in);
         System.out.println("Welcome to adventure story where you fight monsters!");
-        
+        Scanner input = new Scanner(System.in); 
         Player player = chooseClass();
         player.getClass().cast(player);
+        System.out.println("\n" +player.getClassName() + " Selected!\n");
         
         System.out.println("What would you like to do?"
                 +"\n1) Attack"
                 +"\n2) Defend");
+        
         while(true){
+            System.out.print("--> ");
             String action = input.nextLine();
-            if(action.equals("1"))player.Attack();
-            if(action.equals("2"))player.Defend();
-            
+            switch (action) {
+                case "1":
+                    player.Attack();
+                    break;
+                case "2":
+                    player.Defend();
+                    break;
+                default:
+                    System.exit(0);
+            }
         }
     }
     public static Player chooseClass(){
-        Scanner input = new Scanner(System.in);
         boolean classChosen = false;
         while(!classChosen){
+            Scanner input = new Scanner(System.in); 
             try{
                 System.out.println("Choose your class:");
                 System.out.println("1) View Stats");
@@ -43,11 +51,8 @@ public class AdventureStory {
                 System.out.print("Select by number ");
                 int classNum = Integer.parseInt(input.nextLine());
                 switch(classNum){
-                case 1:
-                    System.out.println("\nShowing stats\n");
-//                    Write a method to choose which stat to show for each class
-//                        1) Choose which stat to show
-//                        2) Print out the selected stat
+                case 1: 
+                    showStats();
                     break;
                 case 2:
                     return new Archer();
@@ -68,6 +73,45 @@ public class AdventureStory {
                 e.getMessage();
             }
         }
-        return chooseClass();//Just in case it returns an empty player.
+        return chooseClass(); //Just in case it returns an empty player.
+    }
+    
+    public static void showStats(){
+        boolean statChosen = false;
+        while(!statChosen){
+            Scanner input = new Scanner(System.in); 
+            try{
+                System.out.println("\nShow stats for which class?");
+                System.out.println("1) Exit Menu");
+                System.out.println("2) Archer");
+                System.out.println("3) Mage");
+                System.out.println("4) Swordsman");
+                System.out.print("Select by number ");
+                int statNum = Integer.parseInt(input.nextLine());
+                switch(statNum){
+                    case 1:
+                        System.out.println("Exiting...\n");
+                        statChosen = true;
+                        break;
+                    case 2:
+                        Archer archer = new Archer();
+                        archer.showStats();
+                        break;
+                    case 3:
+                        Mage mage = new Mage();
+                        mage.showStats();
+                        break;
+                    case 4:
+                        Swordsman swordsman = new Swordsman();
+                        swordsman.showStats();
+                        break;
+                    default:
+                        System.out.println("\n" + statNum + " is not an option. \n");
+                        break;
+                }
+            }catch(Exception e){
+                System.out.println("Oof");
+            }
+        }
     }
 }
