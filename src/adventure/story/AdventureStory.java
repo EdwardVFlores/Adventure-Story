@@ -2,17 +2,19 @@ package adventure.story;
 
 /**
  * @author Edward Flores
- * @date 1/18/2019
  */
 
 import java.util.Scanner;
 import adventure.story.Item.*;
+import adventure.story.Monster.*;
+import java.util.ArrayList;
 public class AdventureStory {   
     
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
         System.out.println("Welcome to adventure story where you fight monsters!");
         Scanner input = new Scanner(System.in);
         Player player = chooseClass();
@@ -21,7 +23,8 @@ public class AdventureStory {
         
         System.out.println("What would you like to do?"
                 +"\n1) Attack"
-                +"\n2) Defend");
+                +"\n2) Defend"
+                +"\n3) Show Stats");
         
         while(true){
             System.out.print("--> ");
@@ -29,15 +32,24 @@ public class AdventureStory {
             switch (action) {
                 case "1":
                     player.Attack();
+//                    Monster monster = new Monster();
+//                    System.out.println("A "+monster.getMob().getMobName()+" has spawned!");
+//                    int damage = monster.getMob().Attack();
+//                    player.changeHealth(damage);
                     break;
                 case "2":
                     player.Defend();
+                    break;
+                case "3":
+                    player.showStats();
+                    System.out.println();
                     break;
                 default:
                     System.exit(0);
             }
         }
     }
+    
     public static Player chooseClass(){
         Scanner input = new Scanner(System.in); 
         boolean classChosen = false;
