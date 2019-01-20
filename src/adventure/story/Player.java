@@ -10,7 +10,6 @@ public abstract class Player{
     
     public Player(String className){
         this.className = className;
-        System.out.println("\nYou have selected the "+this.className+" class!\n");
     }
     public String getClassName(){
         return this.className;
@@ -18,6 +17,10 @@ public abstract class Player{
     
     public int getHealth(){
         return this.health;
+    }
+    
+    public int getDefense(){
+        return this.defense;
     }
     
     public void changeHealth(int health){
@@ -33,5 +36,12 @@ public abstract class Player{
     public void Defend(){
         System.out.println("Blocking for " + this.defense + " damage.");
     }
+    public void showStats(){
+        System.out.println();
+        System.out.println("Showing " + this.className.toLowerCase() + " stats.");
+        System.out.println("Health: " + this.getHealth());
+        System.out.println("Defense: " + this.getDefense());
+        System.out.println();
+    } 
     
 }
