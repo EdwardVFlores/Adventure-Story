@@ -2,18 +2,26 @@ package adventure.story;
 
 /**
  * @author Edward Flores
- * @date 1/18/2019
  */
 
 public abstract class Player{
-    private final String className;
+    private final String CLASSNAME;
     private int health,defense;
     
     public Player(String className){
-        this.className = className;
+        this.CLASSNAME = className;
     }
+    
+    public void setHealth(int health){
+        this.health = health;
+    }
+    
+    public void setDefense(int defense){
+        this.defense = defense;
+    }
+    
     public String getClassName(){
-        return this.className;
+        return this.CLASSNAME;
     }
     
     public int getHealth(){
@@ -23,7 +31,7 @@ public abstract class Player{
     public int getDefense(){
         return this.defense;
     }
-    
+
     public void changeHealth(int health){
         this.health += health;
     }
@@ -37,13 +45,14 @@ public abstract class Player{
     public void Defend(){
         System.out.println("Blocking for " + this.defense + " damage.");
     }
+    
     public void showStats(){
         System.out.println();
-        System.out.println("+-- "+this.className+" Stats --+");
+        System.out.println("+-- "+this.CLASSNAME+" Stats --+");
         System.out.println(" Health: " + this.getHealth());
         System.out.println(" Defense: " + this.getDefense());
         System.out.print("+------");
-        for (int i=0; i<this.className.length(); i++) {
+        for (int i=0; i<this.CLASSNAME.length(); i++) {
             System.out.print("-");
         }
         System.out.println("------+");
