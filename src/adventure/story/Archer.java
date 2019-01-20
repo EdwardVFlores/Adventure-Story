@@ -19,4 +19,5 @@ public class Archer extends Player{
     public void Attack(){
         System.out.println("Archer Attack successful!");
     }
+    
 }
