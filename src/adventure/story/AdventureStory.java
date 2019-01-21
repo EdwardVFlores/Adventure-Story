@@ -5,9 +5,11 @@ package adventure.story;
  */
 
 import java.util.Scanner;
+import adventure.story.Item.Broadsword.*;
 import adventure.story.Item.*;
 import adventure.story.Monster.*;
 import java.util.ArrayList;
+
 public class AdventureStory {   
     
     /**
@@ -15,16 +17,20 @@ public class AdventureStory {
      */
     public static void main(String[] args) {
         
-        System.out.println("Welcome to adventure story where you fight monsters!");
+        
+        
+        
         Scanner input = new Scanner(System.in);
         Player player = chooseClass();
         player.getClass().cast(player);
         System.out.println("\n" +player.getClassName() + " Selected!\n");
         
-        System.out.println("What would you like to do?"
+        System.out.println(
+                "What would you like to do?"
                 +"\n1) Attack"
                 +"\n2) Defend"
-                +"\n3) Show Stats");
+                +"\n3) Show Stats"
+                +"\n4) Test Weapon");
         
         while(true){
             System.out.print("--> ");
@@ -43,6 +49,16 @@ public class AdventureStory {
                 case "3":
                     player.showStats();
                     System.out.println();
+                    break;
+                case "4":
+                    Item bs = new Steel();
+                    Item rs = new Rusty();
+                    Item mt = new Mithril();
+                    player.pickUp(bs);
+                    player.pickUp(rs);
+                    player.pickUp(mt);
+                    player.showInventory();
+                    
                     break;
                 default:
                     System.exit(0);
