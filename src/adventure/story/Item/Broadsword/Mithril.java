@@ -3,9 +3,9 @@ package adventure.story.Item.Broadsword;
 /**
  * @author Edward Flores
  */
-public class RustyBroadsword extends Broadsword{
+public class Mithril extends Broadsword{
     
-    public RustyBroadsword(){
-        
+    public Mithril(){
+        super("Mithril",5);
     }
 }

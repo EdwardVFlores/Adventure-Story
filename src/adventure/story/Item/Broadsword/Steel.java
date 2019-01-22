@@ -3,9 +3,9 @@ package adventure.story.Item.Broadsword;
 /**
  * @author Edward Flores
  */
-public class SteelBroadsword extends Broadsword{
+public class Steel extends Broadsword{
     
-    public SteelBroadsword(){
-        
+    public Steel(){
+        super("Steel",3);
     }
 }
