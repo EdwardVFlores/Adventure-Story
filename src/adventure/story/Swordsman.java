@@ -3,8 +3,8 @@ package adventure.story;
 /**
  * @author Edward Flores
  */
+public class Swordsman extends Player {
 
-public class Swordsman extends Player{
     private final int BASEHEALTH = 10;
     private final int BASEDEFENSE = 0;
 
@@ -13,8 +13,9 @@ public class Swordsman extends Player{
         this.changeHealth(BASEHEALTH);
         this.changeDefense(BASEDEFENSE);
     }
+
     @Override
-    public void Attack(){
+    public void Attack() {
         System.out.println("Sword Attack successful!");
     }
 }

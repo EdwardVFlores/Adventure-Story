@@ -4,6 +4,7 @@ package adventure.story.Item;
  * @author Edward Flores
  */
 public class Item {
+
     private String ItemType;
     private String ItemName;
 
@@ -22,6 +23,5 @@ public class Item {
     public void setItemName(String ItemName) {
         this.ItemName = ItemName;
     }
-    
-    
+
 }

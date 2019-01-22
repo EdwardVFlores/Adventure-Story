@@ -6,7 +6,6 @@ import java.util.ArrayList;
 /**
  * @author Edward Flores
  */
-
 public abstract class Player {
 
     private final String CLASSNAME;

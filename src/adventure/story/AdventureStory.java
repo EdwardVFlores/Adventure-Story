@@ -3,36 +3,32 @@ package adventure.story;
 /**
  * @author Edward Flores
  */
-
 import java.util.Scanner;
 import adventure.story.Item.Broadsword.*;
 import adventure.story.Item.*;
 import adventure.story.Monster.*;
 import java.util.ArrayList;
 
-public class AdventureStory {   
-    
+public class AdventureStory {
+
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
-        
-        
-        
+
         Scanner input = new Scanner(System.in);
         Player player = chooseClass();
         player.getClass().cast(player);
-        System.out.println("\n" +player.getClassName() + " Selected!\n");
-        
+        System.out.println("\n" + player.getClassName() + " Selected!\n");
+
         System.out.println(
                 "What would you like to do?"
-                +"\n1) Attack"
-                +"\n2) Defend"
-                +"\n3) Show Stats"
-                +"\n4) Test Weapon");
-        
-        while(true){
+                + "\n1) Attack"
+                + "\n2) Defend"
+                + "\n3) Show Stats"
+                + "\n4) Test Weapon");
+
+        while (true) {
             System.out.print("--> ");
             String action = input.nextLine();
             switch (action) {
@@ -58,28 +54,28 @@ public class AdventureStory {
                     player.pickUp(rs);
                     player.pickUp(mt);
                     player.showInventory();
-                    
+
                     break;
                 default:
                     System.exit(0);
             }
         }
     }
-    
-    public static Player chooseClass(){
-        Scanner input = new Scanner(System.in); 
+
+    public static Player chooseClass() {
+        Scanner input = new Scanner(System.in);
         boolean classChosen = false;
-        while(!classChosen){
+        while (!classChosen) {
             System.out.println("Choose your class:");
             System.out.println("1) View Stats");
             System.out.println("2) Archer");
             System.out.println("3) Mage");
             System.out.println("4) Swordsman");
             System.out.print("Select by number ");
-            try{
+            try {
                 int classNum = Integer.parseInt(input.nextLine());
-                switch(classNum){
-                    case 1: 
+                switch (classNum) {
+                    case 1:
                         showStats();
                         break;
                     case 2:
@@ -93,28 +89,28 @@ public class AdventureStory {
                         break;
                 }
                 classChosen = true;
-            }catch(NumberFormatException e){
+            } catch (NumberFormatException e) {
                 System.out.println("\nThat is not a number!\n");
-            }catch(Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
         return chooseClass(); //Just in case it returns an empty player.
     }
-    
-    public static void showStats(){
+
+    public static void showStats() {
         Scanner input = new Scanner(System.in);
         boolean stopStatView = false;
-        while(!stopStatView){ 
+        while (!stopStatView) {
             System.out.println("\nShow stats for which class?");
             System.out.println("1) Exit Menu");
             System.out.println("2) Archer");
             System.out.println("3) Mage");
             System.out.println("4) Swordsman");
             System.out.print("Select by number ");
-            try{
+            try {
                 int statNum = Integer.parseInt(input.nextLine());
-                switch(statNum){
+                switch (statNum) {
                     case 1:
                         System.out.println("\nExiting...\n");
                         stopStatView = true;
@@ -135,7 +131,7 @@ public class AdventureStory {
                         System.out.println("\n" + statNum + " is not an option. \n");
                         break;
                 }
-            }catch(Exception e){
+            } catch (Exception e) {
                 System.out.println("Oof");
             }
         }
