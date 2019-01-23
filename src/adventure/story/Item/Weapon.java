@@ -5,9 +5,10 @@ package adventure.story.Item;
  */
 public class Weapon extends Item {
 
-    public Weapon(String weaponName) {
+    public Weapon(String weaponName,int damage) {
         super.setItemType("Weapon");
         super.setItemName(weaponName);
+        super.setDamage(damage);
     }
 
 }

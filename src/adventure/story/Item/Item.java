@@ -5,23 +5,31 @@ package adventure.story.Item;
  */
 public class Item {
 
-    private String ItemType;
-    private String ItemName;
+    private String itemType,itemName;
+    private int damage;
 
     public String getItemType() {
-        return ItemType;
+        return itemType;
     }
 
     public void setItemType(String ItemType) {
-        this.ItemType = ItemType;
+        this.itemType = ItemType;
     }
 
     public String getItemName() {
-        return ItemName;
+        return itemName;
     }
 
     public void setItemName(String ItemName) {
-        this.ItemName = ItemName;
+        this.itemName = ItemName;
+    }
+    
+    public int getDamage(){
+        return this.damage;
+    }
+    
+    public void setDamage(int damage){
+        this.damage = damage;
     }
 
 }
