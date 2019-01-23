@@ -13,9 +13,4 @@ public class Swordsman extends Player {
         this.changeHealth(BASEHEALTH);
         this.changeDefense(BASEDEFENSE);
     }
-
-    @Override
-    public void Attack() {
-        System.out.println("Sword Attack successful!");
-    }
 }

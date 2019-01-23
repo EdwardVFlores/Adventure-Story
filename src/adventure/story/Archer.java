@@ -13,10 +13,4 @@ public class Archer extends Player {
         this.changeHealth(BASEHEALTH);
         this.changeDefense(BASEDEFENSE);
     }
-
-    @Override
-    public void Attack() {
-        System.out.println("Archer Attack successful!");
-    }
-
 }
