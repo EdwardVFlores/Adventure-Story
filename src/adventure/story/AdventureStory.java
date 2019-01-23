@@ -19,46 +19,47 @@ public class AdventureStory {
         Scanner input = new Scanner(System.in);
         Player player = chooseClass();
         player.getClass().cast(player);
-        System.out.println("\n" + player.getClassName() + " Selected!\n");
-
-        System.out.println(
-                "What would you like to do?"
-                + "\n1) Attack"
-                + "\n2) Defend"
-                + "\n3) Show Stats"
-                + "\n4) Test Weapon");
-
+        if(player.getClass() == Swordsman.class){
+            Item rs = new Rusty();
+            player.pickUp(rs);
+        } else if(player.getClass() == Mage.class){
+            System.out.println("Mage item");
+        } else if(player.getClass() == Archer.class){
+            System.out.println("Archer item");
+        }
+        System.out.println("\n" + player.getClassName() + " Selected!");
+        
         while (true) {
-            System.out.print("--> ");
-            String action = input.nextLine();
-            switch (action) {
-                case "1":
-                    player.Attack();
-//                    Monster monster = new Monster();
-//                    System.out.println("A "+monster.getMob().getMobName()+" has spawned!");
-//                    int damage = monster.getMob().Attack();
-//                    player.changeHealth(damage);
-                    break;
-                case "2":
-                    player.Defend();
-                    break;
-                case "3":
-                    player.showStats();
-                    System.out.println();
-                    break;
-                case "4":
-                    Item bs = new Steel();
-                    Item rs = new Rusty();
-                    Item mt = new Mithril();
-                    player.pickUp(bs);
-                    player.pickUp(rs);
-                    player.pickUp(mt);
-                    player.showInventory();
-
-                    break;
-                default:
-                    System.exit(0);
+            Monster monster = new Monster();
+            System.out.println("\nA "+monster.getMob().getMobName()+" has spawned!\n");
+            while(monster.getMob().getHealth()>0){
+                System.out.println(
+                    "What would you like to do?"
+                    + "\n1) Attack"
+                    + "\n2) Defend"
+                    + "\n3) Show Stats"
+                    + "\n4) Exit Game");
+                System.out.print("--> ");
+                String action = input.nextLine();
+                
+                switch (action){
+                    case "1":
+                        monster.getMob().changeHealth(player.Attack(monster));
+                        player.changeHealth(monster.getMob().Attack());
+                        break;
+                    case "2":
+                        player.Defend();
+                        player.changeHealth(monster.getMob().Attack());
+                        break;
+                    case "3":
+                        player.showStats();
+                        break;
+                    default:
+                        System.exit(0);
+                    
+                }
             }
+            System.out.println("You killed the " + monster.getMob().getMobName() + "!");
         }
     }
 

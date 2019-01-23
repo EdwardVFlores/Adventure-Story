@@ -2,6 +2,7 @@ package adventure.story;
 
 import adventure.story.Item.*;
 import java.util.ArrayList;
+import adventure.story.Monster.*;
 
 /**
  * @author Edward Flores
@@ -44,7 +45,12 @@ public abstract class Player {
         this.defense += defense;
     }
 
-    public abstract void Attack();
+    public int Attack(Monster mob){
+        System.out.println(
+                "\nYou did " + INVENTORY.get(0).getDamage() + 
+                " damage to the " + mob.getMob().getMobName() + "!");
+        return -INVENTORY.get(0).getDamage();
+    }
 
     public void Defend() {
         System.out.println("Blocking for " + this.defense + " damage.");
