@@ -39,9 +39,10 @@ public abstract class BeginnerMob {
     public abstract int getXP();
 
     public int Attack() {
+        System.out.println("+--"+MOBNAME+"--+");
         System.out.println("Health: " + this.getHealth());
         System.out.println("Defense: " + this.getDefense());
-        System.out.println("You took " + this.mobDamage + " damage!");
+        System.out.println("\nYou took " + this.mobDamage + " damage!\n");
         return -this.mobDamage;
     }
 
