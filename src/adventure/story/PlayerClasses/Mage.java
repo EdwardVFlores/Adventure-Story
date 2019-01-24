@@ -1,4 +1,5 @@
-package adventure.story;
+package adventure.story.PlayerClasses;
+import adventure.story.Player;
 
 /**
  * @author Edward Flores

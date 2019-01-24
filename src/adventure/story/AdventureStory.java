@@ -3,6 +3,8 @@ package adventure.story;
 /**
  * @author Edward Flores
  */
+import adventure.story.PlayerClasses.*;
+
 import java.util.Scanner;
 import adventure.story.Item.Broadsword.*;
 import adventure.story.Item.*;
