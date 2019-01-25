@@ -8,7 +8,4 @@ public class Rusty extends Broadsword {
     public Rusty() {
         super("Rusty", 1);
     }
-    public void Hello(){
-        System.out.println("Hello From rusty.");
-    }
 }
