@@ -21,9 +21,12 @@ public class AdventureStory {
         Scanner input = new Scanner(System.in);
         Player player = chooseClass();
         player.getClass().cast(player);
+        System.out.println(player.getClass());
         if(player.getClass() == Swordsman.class){
             Item rs = new Rusty();
+            rs.getClass().cast(rs);
             player.pickUp(rs);
+            
         } else if(player.getClass() == Mage.class){
             System.out.println("Mage item");
         } else if(player.getClass() == Archer.class){
