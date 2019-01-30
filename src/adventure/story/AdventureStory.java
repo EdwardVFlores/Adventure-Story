@@ -42,8 +42,7 @@ public class AdventureStory {
                     "What would you like to do?"
                     + "\n1) Attack"
                     + "\n2) Defend"
-                    + "\n3) Show Stats"
-                    + "\n4) Exit Game");
+                    + "\n3) Exit Game");
                 System.out.print("--> ");
                 String action = input.nextLine();
                 
@@ -51,12 +50,11 @@ public class AdventureStory {
                     case "1":
                         monster.getMob().changeHealth(player.Attack(monster));
                         player.changeHealth(monster.getMob().Attack());
+                        player.showStats();
                         break;
                     case "2":
                         player.Defend();
                         player.changeHealth(monster.getMob().Attack());
-                        break;
-                    case "3":
                         player.showStats();
                         break;
                     default:
